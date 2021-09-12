@@ -5,41 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mytodoapp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
-    <Grid Background="#242638" ShowGridLines="True">
-        <Grid.RowDefinitions>
+        Title="MainWindow" Height="460" Width="800">
+   
+    <Grid Background="#242638">
+            <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="300"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <TextBlock Margin="10" Background="#242638" Foreground="#FAE800" FontSize="20" TextAlignment="left" Grid.Row="0" Text="Todo Items"/>
-        <ListView Grid.Row="1" Background="#33364F" Foreground="#fff" ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+        <ListView Grid.Row="1" Background="#33364F" Foreground="#fff" ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                        <CheckBox Background="#33364F" Foreground="#FAE800" BorderBrush="#fff" IsChecked="{Binding status, Mode=TwoWay}" Margin="20">
-                            <CheckBox.LayoutTransform>
-                                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
-                            </CheckBox.LayoutTransform>
-                        </CheckBox>
-                            <TextBlock Margin="20" Text="{Binding title}"/>
-                            <TextBlock Margin="20" Text="{Binding description}"/>
+                        <Grid Width="auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox BorderThickness="1" VerticalAlignment="Center" Grid.RowSpan="2" Background="#33364F" Foreground="#fff" BorderBrush="#fff" IsChecked="{Binding status, Mode=TwoWay}" Margin="20">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                </CheckBox.LayoutTransform>
+                         
+                            </CheckBox>
+                            <TextBlock Grid.Row="0" FontSize="20" Grid.Column="1" Margin="10 10 0 0" Text="{Binding title}"/>
+                            <TextBlock Width="600" Grid.Row="1" Foreground="#B9B9B9" Grid.Column="1" Margin="20 10 0 10" TextWrapping="Wrap" Text="{Binding description}"/>
+                        </Grid>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-        <Grid Background="#242638" ShowGridLines="True" Grid.Row="2">
+        <Grid Background="#242638" Grid.Row="2" HorizontalAlignment="Right">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Button Click="deleteSelected" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" Padding="0" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="50" Height="50" Style="{DynamicResource RoundButton}" Content="del"/>
-            <Button Click="newTodoWindow" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Padding="0" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="50" Height="50" Style="{DynamicResource RoundButton}" Content="+"/>
+            <Button 
+                Click="newTodoWindow"
+                BorderThickness="0"
+                HorizontalAlignment="Right"
+                Background="#FAE800"
+                Grid.Row="1"
+                Grid.Column="1"
+                Padding="0" FontSize="40"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="50"
+                Height="50"
+                Style="{DynamicResource RoundButton}"
+                Margin="10">
+                <Image HorizontalAlignment="Center" Width="35" Height="35" Source="/img/plus.png"/>
+            </Button>
+            <Button
+                BorderThickness="0"
+                Background="#FC4850"
+                Click="deleteSelected"
+                HorizontalAlignment="Right"
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="50"
+                Height="50"
+                Style="{DynamicResource RoundButton}"
+                Margin="10">
+               <Image HorizontalAlignment="Center" Width="35" Height="35" Source="/img/delete.png"/>
+            </Button>
         </Grid>
     </Grid>
 </Window>

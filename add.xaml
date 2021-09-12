@@ -10,20 +10,20 @@
         <CommandBinding Command="ApplicationCommands.Close"
                         Executed="CloseCommandHandler"/>
     </Window.CommandBindings>
-    <Grid ShowGridLines="True">
+    <Grid Background="#242638">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Add Todo"/>
+        <TextBlock Grid.Row="0" Text="Add Todo" Foreground="#fff"/>
         <StackPanel Grid.Row="1">
-            <Label Content="title:"/>
-            <TextBox x:Name="titleTb" Text="{Binding todoTitle, Mode=TwoWay}"/>
-            <Label Content="description:"/>
-            <TextBox x:Name="descriptionTb" Text="{Binding todoDescription, Mode=TwoWay}"/>
+            <Label Content="title:" Foreground="#fff" FontSize="20"/>
+            <TextBox x:Name="titleTb" Text="{Binding todoTitle, Mode=TwoWay}" Margin="20"/>
+            <Label Content="description:" Foreground="#fff" FontSize="20"/>
+            <TextBox x:Name="descriptionTb" Text="{Binding todoDescription, Mode=TwoWay}" Margin="20" Height="20"/>
         </StackPanel>
-           <Grid ShowGridLines="True" Grid.Row="2" Margin="10">
+           <Grid Grid.Row="2" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -31,8 +31,35 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-            <Button Click="addTodo" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Padding="0" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100" Height="40"  Content="OK"/>
-            <Button Command="ApplicationCommands.Close" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" Padding="0" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100" Height="40"  Content="Cancel"/>
+            <Button
+                Style="{DynamicResource RoundButton}"
+                BorderThickness="0"
+                Click="addTodo"
+                HorizontalAlignment="Right"
+                Grid.Row="2"
+                Grid.Column="0"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="60"
+                Height="60"
+                Content="OK"
+                />
+            <Button
+                Style="{DynamicResource RoundButton}"
+                BorderThickness="0"
+                Command="ApplicationCommands.Close"
+                HorizontalAlignment="Right"
+                Grid.Row="3"
+                Grid.Column="1"
+                Padding="0"
+                FontSize="15"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="60"
+                Height="60"
+                Content="Cancel"/>
         </Grid>
     </Grid>
 </Window>

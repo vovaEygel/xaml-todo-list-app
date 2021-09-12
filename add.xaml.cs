@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using mytodoapp.ViewModel;
+
 
 namespace mytodoapp
 {
@@ -27,18 +18,19 @@ namespace mytodoapp
             InitializeComponent();
             DataContext = this;
         }
+        private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
         public void addTodo(object sender, RoutedEventArgs e)
         {
-            if(String.IsNullOrEmpty(this.todoDescription)!=true)
+            if(String.IsNullOrEmpty(this.todoDescription)!=true && String.IsNullOrEmpty(this.todoTitle) != true)
             {
                 mytodoapp.MainWindow.AppWindow.addNewTodo(this.todoTitle, this.todoDescription);
                 this.todoTitle = "";
                 this.todoDescription = "";
+                CloseCommandHandler(null, null);
             }
-        }
-        private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
