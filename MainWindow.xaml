@@ -13,22 +13,11 @@
             <RowDefinition Height="300"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <TextBlock Margin="10" Background="#242638" Foreground="#FAE800" FontSize="20" TextAlignment="left" Grid.Row="0" Text="Todo Items"/>
-        <ListView Grid.Row="1" Background="#33364F" Foreground="#fff" ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
+        <TextBlock Margin="10" Foreground="#FAE800" FontSize="20" TextAlignment="left" Grid.Row="0" Text="Todo Items"/>
+        <ListView Grid.Row="1"  ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                        <!--<Border BorderThickness="5,0,0,0" BorderBrush="DodgerBlue">-->
-                        <StackPanel.Style>
-                            <Style>
-                                <Setter Property="BorderBrush" Value="White" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsFocused" Value="True">
-                                        <Setter Property="Bor"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Style>
                         <Border>
                         <Grid Width="auto">
                             <Grid.RowDefinitions>
