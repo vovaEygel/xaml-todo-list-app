@@ -14,10 +14,22 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <TextBlock Margin="10" Background="#242638" Foreground="#FAE800" FontSize="20" TextAlignment="left" Grid.Row="0" Text="Todo Items"/>
-        <ListView Grid.Row="1" Background="#33364F" Foreground="#fff" ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0">
+        <ListView Grid.Row="1" Background="#33364F" Foreground="#fff" ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
+                        <!--<Border BorderThickness="5,0,0,0" BorderBrush="DodgerBlue">-->
+                        <StackPanel.Style>
+                            <Style>
+                                <Setter Property="BorderBrush" Value="White" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="Bor"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Border>
                         <Grid Width="auto">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
@@ -27,15 +39,15 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                            <CheckBox BorderThickness="1" VerticalAlignment="Center" Grid.RowSpan="2" Background="#33364F" Foreground="#fff" BorderBrush="#fff" IsChecked="{Binding status, Mode=TwoWay}" Margin="20">
+                            <CheckBox BorderThickness="1" VerticalAlignment="Center" Grid.RowSpan="2" IsChecked="{Binding status, Mode=TwoWay}" Margin="20">
                                 <CheckBox.LayoutTransform>
                                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                                 </CheckBox.LayoutTransform>
-                         
                             </CheckBox>
                             <TextBlock Grid.Row="0" FontSize="20" Grid.Column="1" Margin="10 10 0 0" Text="{Binding title}"/>
                             <TextBlock Width="600" Grid.Row="1" Foreground="#B9B9B9" Grid.Column="1" Margin="20 10 0 10" TextWrapping="Wrap" Text="{Binding description}"/>
                         </Grid>
+                        </Border>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

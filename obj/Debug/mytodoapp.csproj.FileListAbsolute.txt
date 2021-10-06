@@ -16,3 +16,6 @@ C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\mytodoapp.pdb
 C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\App.baml
 C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\add.g.cs
 C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\add.baml
+C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\styles\border.baml
+C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\styles\checkbox.baml
+C:\Users\vova\source\repos\mytodoapp\mytodoapp\obj\Debug\styles\item.baml
