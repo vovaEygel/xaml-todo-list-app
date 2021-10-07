@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:mytodoapp"
         mc:Ignorable="d"
         Title="MainWindow" Height="460" Width="800">
-   
     <Grid Background="#242638">
             <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -15,10 +14,9 @@
         </Grid.RowDefinitions>
         <TextBlock Margin="10" Foreground="#FAE800" FontSize="20" TextAlignment="left" Grid.Row="0" Text="Todo Items"/>
         <ListView Grid.Row="1"  ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
-                <ListView.ItemTemplate>
+            <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                        <Border>
+                    <StackPanel Orientation="Horizontal">
                         <Grid Width="auto">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
@@ -36,11 +34,10 @@
                             <TextBlock Grid.Row="0" FontSize="20" Grid.Column="1" Margin="10 10 0 0" Text="{Binding title}"/>
                             <TextBlock Width="600" Grid.Row="1" Foreground="#B9B9B9" Grid.Column="1" Margin="20 10 0 10" TextWrapping="Wrap" Text="{Binding description}"/>
                         </Grid>
-                        </Border>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+        </ListView>
 
         <Grid Background="#242638" Grid.Row="2" HorizontalAlignment="Right">
             <Grid.RowDefinitions>

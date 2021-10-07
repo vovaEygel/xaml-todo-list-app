@@ -1,20 +1,27 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:mytodoapp.styles">
-    <Style TargetType="ListViewItem">
-        <Setter Property="BorderThickness" Value="5,1,0,1"/>
+    <Style TargetType="ListView">
         <Setter Property="Background" Value="#33364F"/>
         <Setter Property="Foreground" Value="#fff"/>
-        <Style.Triggers>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="BorderThickness" Value="5,0,0,0"/>
-                <Setter Property="BorderBrush" Value="#FAE800"/>
-                <Setter Property="Background" Value="#33364F"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
-    <Style TargetType="ListView">
-        <Setter Property="Background" Value="#242638"/>
-        <Setter Property="Foreground" Value="#fff"/>
+    <Style TargetType="ListViewItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                    <Border Name="Border" BorderThickness="5,0,0,0">
+                        <ContentPresenter/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="Border" Property="Background"
+                                    Value="#242638"/>
+
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#FAE800"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>
