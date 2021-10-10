@@ -5,22 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mytodoapp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="800">
+        Title="MainWindow" Height="480" Width="800">
     <Grid Background="#242638">
             <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <TextBlock Margin="10" Foreground="#FAE800" FontSize="20" TextAlignment="left" Grid.Row="0" Text="Todo Items"/>
-        <ListView Grid.Row="1"  ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0" SelectionChanged="ListView_SelectionChanged">
+        <ListView Grid.Row="1" ItemsSource="{Binding Todos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"  VerticalContentAlignment="Top"  
+          ScrollViewer.VerticalScrollBarVisibility="Visible"
+          ScrollViewer.CanContentScroll="True" ScrollViewer.IsDeferredScrollingEnabled="True">
+        
             <ListView.ItemTemplate>
                     <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <!--<StackPanel Orientation="Horizontal">-->
                         <Grid Width="auto">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
-                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
@@ -34,19 +37,28 @@
                             <TextBlock Grid.Row="0" FontSize="20" Grid.Column="1" Margin="10 10 0 0" Text="{Binding title}"/>
                             <TextBlock Width="600" Grid.Row="1" Foreground="#B9B9B9" Grid.Column="1" Margin="20 10 0 10" TextWrapping="Wrap" Text="{Binding description}"/>
                         </Grid>
-                        </StackPanel>
+                        <!--</StackPanel>-->
                     </DataTemplate>
                 </ListView.ItemTemplate>
         </ListView>
-
-        <Grid Background="#242638" Grid.Row="2" HorizontalAlignment="Right">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Margin="0,300,30,0">
+            <Button
+                BorderThickness="0"
+                Background="#FC4850"
+                Click="deleteSelected"
+                HorizontalAlignment="Right"
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="0"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="50"
+                Height="50"
+                Style="{DynamicResource RoundButton}"
+                Margin="10">
+                <Image HorizontalAlignment="Center" Width="35" Height="35" Source="/img/delete.png"/>
+            </Button>
             <Button 
                 Click="newTodoWindow"
                 BorderThickness="0"
@@ -63,23 +75,6 @@
                 Margin="10">
                 <Image HorizontalAlignment="Center" Width="35" Height="35" Source="/img/plus.png"/>
             </Button>
-            <Button
-                BorderThickness="0"
-                Background="#FC4850"
-                Click="deleteSelected"
-                HorizontalAlignment="Right"
-                Grid.Row="1"
-                Grid.Column="0"
-                Padding="0"
-                FontSize="20"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Width="50"
-                Height="50"
-                Style="{DynamicResource RoundButton}"
-                Margin="10">
-               <Image HorizontalAlignment="Center" Width="35" Height="35" Source="/img/delete.png"/>
-            </Button>
-        </Grid>
+        </StackPanel>
     </Grid>
 </Window>

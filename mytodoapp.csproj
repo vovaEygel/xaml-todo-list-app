@@ -61,6 +61,7 @@
     <Compile Include="add.xaml.cs">
       <DependentUpon>add.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\listItemViewModel.cs" />
     <Compile Include="ViewModel\TodoListViewModel.cs" />
     <Page Include="add.xaml">
       <SubType>Designer</SubType>
@@ -87,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="styles\item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="styles\scrollbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,9 +122,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="img\delete.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
